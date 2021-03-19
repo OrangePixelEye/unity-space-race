@@ -37,10 +37,7 @@ public class SpawnerArea : MonoBehaviour
     	
     }
 
-    void OnEnable()
-    {
-        StartSpawn();
-    }
+    void OnEnable() => StartSpawn();
 
     private void StartSpawn()
     {

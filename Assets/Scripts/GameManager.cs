@@ -23,10 +23,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangeScene(int scene_build_index)
-    {
-        SceneManager.LoadScene(scene_build_index);
-    }
+    public void ChangeScene(int scene_build_index) => SceneManager.LoadScene(scene_build_index);
 
     public void GivePoint(bool is_player_1_point)
     {
@@ -50,10 +47,7 @@ public class GameManager : MonoBehaviour
             gameScreen.ShowWinner(2);
     }
 
-    public void StartGame()
-    {
-        gameScreen = FindObjectOfType<GameScreen>();
-    }
+    public void StartGame() => gameScreen = FindObjectOfType<GameScreen>();
 
     public void ResetGame()
     {
@@ -61,4 +55,6 @@ public class GameManager : MonoBehaviour
         player_2_points = 0;
         gameScreen.UpdatePoints(0, 0);
     }
+
+    public void ExitGame() => Application.Quit();
 }

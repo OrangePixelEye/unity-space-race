@@ -27,16 +27,12 @@ public class GameScreen : MonoBehaviour
         player_2_points.text = player_2.ToString();
     }
 
-    void Start()
-    {
-        bar_start = timer_obj.transform.position;
-    }
+    void Start() => bar_start = timer_obj.transform.position;
 
     public void ShowWinner(int winner)
     {
         show_winner.SetActive(true);
         winner_text.text = "Congratulations player " + winner;
-        
     }
 
     void Update()
@@ -69,8 +65,5 @@ public class GameScreen : MonoBehaviour
         }
     }
 
-    public void ExitGame()
-    {
-        GameManager.Instance.ChangeScene(1);
-    }
+    public void ExitGame() => GameManager.Instance.ChangeScene(1);
 }

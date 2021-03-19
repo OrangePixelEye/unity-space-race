@@ -11,21 +11,26 @@ public abstract class Players : MonoBehaviour
     protected float speed = 12f;
     private Vector2 startPos;
 
+    public abstract void HandleInput();
+    protected abstract void GetPoints();
+
     protected void Start()
     {
         my_rigidbody = GetComponent<Rigidbody2D>();
         startPos = transform.position;
         GameManager.Instance.StartGame();
     }
-    public abstract void HandleInput();
+    
     protected void MoveBar(int vertical)
     {
         my_rigidbody.velocity = new Vector2(0, vertical * speed);
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
         Respawn();
+        if(collision.collider.tag == "Finish")
+            GetPoints();
     }
 
     public void Respawn()

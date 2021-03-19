@@ -18,9 +18,5 @@ public class PlayerRight : Players
         MoveBar(move);
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision)
-    {
-        base.OnCollisionEnter2D(collision);
-        GameManager.Instance.GivePoint(false);
-    }
+    protected override void GetPoints() => GameManager.Instance.GivePoint(false);
 }
